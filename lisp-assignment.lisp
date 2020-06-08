@@ -59,9 +59,9 @@
 
 ;(nth_element )
 
-(fact_by_recur )
+;(fact_by_recur )
 
-;(fact_by_iter )
+(fact_by_iter )
 
 
 

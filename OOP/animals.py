@@ -20,7 +20,7 @@ class Bird:
 	def is_flying(self):
 		return self.__flying
 
-	def speciality(self):
+	def get_speciality(self):
 		print("Speciality of {}:\n  Color : {}.\t Size : {}.\t Beak : {}. \t {}".format(self.__species, self.__color, self.__size, self.__beak, self.__special))
 
 	def set_speciality(self, color, size, beak, special = None):
@@ -88,7 +88,7 @@ class Elephant(ABC):
 	def set_species(self, species):
 		self._species = species
 	
-	def speciality(self):
+	def get_speciality(self):
 		pass
 
 ##########################################################################################
@@ -110,7 +110,7 @@ class Asian_Elephant(Elephant):
 	def get_weight(self, w = None):
 		print("Weight : {} kg".format(self.__weight))
 
-	def speciality(self):
+	def get_speciality(self):
 		print("Speciality of {}:\n  Ears : {}. \tSize: {}.".format(self._species, self.__ears, self.__size))
 
 	def describe(self):
@@ -135,7 +135,7 @@ class African_Elephant(Elephant):
 	def get_weight(self, w = None):
 		print("Weight : {} kg".format(self.__weight))
 
-	def speciality(self):
+	def get_speciality(self):
 		print("Speciality of {}:\n  Ears : {}. \tSize: {}.".format(self._species, self.__ears, self.__size))
 
 	def describe(self):
@@ -172,7 +172,7 @@ class Dog:
     def get_color(self):
         print("Color of Dog is : {}.".format(self.__color))
 
-    def speciality(self, tail, height, skin):
+    def set_speciality(self, tail, height, skin):
         self._tail = tail
         self._height = height
         self._skin = skin
@@ -193,7 +193,7 @@ class Labrador(Dog):
     def __init__(self, name, age):
         super().__init__(name, age)
         self.set_breed("Labrador")
-        super().speciality("Long Hairy Tail", "Medium Height", "Hairy Skin")
+        super().set_speciality("Long Hairy Tail", "Medium Height", "Hairy Skin")
 
     def get_speciality(self):
         print("Speciality of Labrador breed :\n {} \t {} \t {}".format(self._height, self._tail, self._skin))
@@ -203,7 +203,7 @@ class Doberman(Dog):
     def __init__(self, name, age):
         super().__init__(name, age)
         self.set_breed("Doberman")
-        super().speciality("Short Tail", "Tall Height", "Less fur")
+        super().set_speciality("Short Tail", "Tall Height", "Less fur")
 
     def get_speciality(self):
         print("Speciality of Doberman breed :\n {} \t {} \t {}".format(self._height, self._tail, self._skin))
@@ -214,7 +214,7 @@ class Pug(Dog):
     def __init__(self, name, age):
         super().__init__(name, age)
         self.set_breed("Pug")
-        super().speciality("Short Tail", "Short Height", "Moderate fur")
+        super().set_speciality("Short Tail", "Short Height", "Moderate fur")
 
     def get_speciality(self):
         print("Speciality of Pug breed :\n {} \t {} \t {}".format(self._height, self._tail, self._skin))
@@ -227,14 +227,14 @@ if __name__ == '__main__':
 	b1.set_flying(True)
 	b1.set_sound("Kleek")
 	b1.set_speciality("Dark Brown", "Large", "Curved Yellow Beak", "White Neck")
-	b1.speciality()
+	b1.get_speciality()
 	print("\n")
 
 	p1 = Peacock()
 	p1.set_sound("Meow")
 	p1.set_speciality("Blue", "Large", "Small Beak", "Beautiful Plumage")
-	p1.speciality()
-	p1.set_plumage()True
+	p1.get_speciality()
+	p1.set_plumage(True)
 	print("\n")
 
 	e1 = Asian_Elephant("Female", 5)
@@ -242,7 +242,7 @@ if __name__ == '__main__':
 	e1.set_tusks(False)
 	e1.set_weight(5500)
 	e1.describe()
-	e1.speciality()
+	e1.get_speciality()
 	print("\n")
 
 	e2 = African_Elephant("Male", 3)
@@ -250,7 +250,7 @@ if __name__ == '__main__':
 	e2.set_tusks(True)
 	e2.set_weight(8000)
 	e2.describe()
-	e2.speciality()
+	e2.get_speciality()
 	print("\n")
 
 	d1 = Dog("Tommy", 3)

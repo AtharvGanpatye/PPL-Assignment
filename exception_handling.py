@@ -1,130 +1,137 @@
+
 #KEYBOARD INTERRUPT ERROR
-def function():
-     try:
-         x = int(input("Enter a number\n"))
-         print(x ** 3)
-     except KeyboardInterrupt:
-         print("\nKeyboard Interrupt detected.")
+def keyboard_interrupt():
+    try:
+    	x = input("Enter Ctrl + C to interrupt OR Enter anything :\n")
 
-try:
-	x = input("Enter Ctrl + C to interrupt OR Enter anything :\n")
+    except KeyboardInterrupt:
+    	print("\nKeyboardInterrupt Detected.")
 
-except KeyboardInterrupt:
-	print("\nKeyboardInterrupt Detected.")
+    else:
+    	print("KeyboardInterrupt didn't occur.")
 
-else:
-	print("KeyboardInterrupt didn't occur.")
-
+keyboard_interrupt()
 ########################################################################################
 
-#STANDARD ERROR
+#STANDARD ERRORS
 
 #1) ZERO DIVISION ERROR
 # DIVISION BY ZERO
 def divide():
     try:
         print("Division of 2 numbers:")
-        x = int(input("Enter first number\n"))
-        y = int(input("Enter second number\n"))
+        x = int(input("\nEnter first number\n"))
+        y = int(input("\nEnter second number\n"))
         z = x / y
     except ZeroDivisionError:
-        print("Division by zero not possible !!!")
+        print("\nDivision by zero not possible !!!")
     else:
         print(z)
 
-
+divide()
 ########################################################################################
 
-#2) OVERFLOW ERROR
-# RESULT TOO BIG TO STORE
-def expo():
-    import math
-    try:
-        x = int(input("Enter a number\n"))
-        y = math.exp(x)
-    except OverflowError:
-        print("Number too large to store !!")
-    else:
-        print(y)
-
-########################################################################################
-
-#3) ASSERTION ERROR
-# RAISED WHEN A != B
-try:
-    a = 100
-    b = "DataCamp"
-    assert a == b
-except AssertionError:
-    print ("Assertion Exception Raised.")
-else:
-    print ("Success, no error!")
-
-########################################################################################
-
-#4) ATTRIBUTE ERROR
+#2) ATTRIBUTE ERROR
 # RAISED WHEN ATTRIBUTE DOESN'T EXIST IN CLASS
 class animal():
-    legs = 4
+    legs = 4 
     tail = 1
     species = "Tiger"
 
-try:
-    x = animal()
-    print(x.legs)
-    print(x.color)
-except AttributeError:
-    print("This Attribute doesn't exist")
+def try_animal():
+    try:
+        print("In 'animal' class.")
+        x = animal()
+        print(x.legs, "legs, ", x.tail, "tail.")
+        print(x.color)
+    except AttributeError:
+        print("\nThis Attribute doesn't exist")
 
+try_animal()
 ########################################################################################
 
-#5) IMPORT ERROR
+#3) IMPORT ERROR
 # WHEN IT IS UNABLE TO LOAD THE MODULE / PACKAGE
-try:
-    import tensorflow
-except:
-    print("Unable to import the module.")
+def import_function():
+    try:
+        import beautifulsoup4
+        
+    except ModuleNotFoundError:
+        print("\nUnable to import the module.")
+    else:
+        print("\nModule imported successfully !")
+
+import_function()
 ########################################################################################
 
-#6) INDEX ERROR
+#4) INDEX ERROR
 # INDEX OUT OF RANGE
-try :
-    l = ['a','t','h','a','r','v']
-    print(l[6])
-except IndexError:
-    print("Array index out of range.")
+def index():
+    try :
+        l = ['i','n','d','i','a']
+        print(l[6])
 
+    except IndexError:
+        print("\nArray index out of range.")
+
+index()
 ########################################################################################
 
-#7) NAME ERROR
+#5) NAME ERROR
 # WHEN THE NAME OF A VARIABLE IS NOT FOUND
-try :
-    print(new_var)
-except NameError:
-    print("Variable not declared anywhere before.")
+def name_err():
+    try :
+        print(new_var)
 
+    except NameError:
+        print("\nVariable not declared anywhere before.")
+
+name_err()
 ########################################################################################
 
-#8) TYPE ERROR
+#6) TYPE ERROR
 # OPERATION ON DIFFERENT DATA TYPES
-try:
-    x = 5
-    y = "COEP"
-    z = x + y
-except TypeError:
-    print("Operation on different types")
-else:
-    print("Success !!")
+def type_err():
+    try:
+        x = 5
+        y = "COEP"
+        z = x + y
 
+    except TypeError:
+        print("\nOperation on different data types.")
+
+    else:
+        print("\nSuccess !!")
+
+type_err()
 ########################################################################################
 
-# 9) VALUE ERROR
+#7) VALUE ERROR
 # INVALID CONVERSION OF DATA TYPES
-try :
-    x = int("Atharv")
-except ValueError:
-    print("Could not convert \"Atharv\" to int.")
-else:
-    print(x)
+def value_err():
+    try :
+        x = int("Pune")
 
+    except ValueError:
+        print("\nCould not convert \"Pune\" to int.")
+
+    else:
+        print(x)
+
+#value_err()
+########################################################################################
+
+#8) IO ERROR
+#   Error while reading and wrting in a file
+def files():
+    try:
+        f = open("demo.txt", "r")
+
+    except IOError:
+        print("\nError : Can't open the file.")
+
+    else:
+        print("\nFile opened successfully.") 
+
+files()
 ########################################################################################

@@ -1,13 +1,3 @@
-/*
-    Name : Atharv Ganpatye, MIS : 111803050, Div : 1, Batch : S-1.
-
-	A Clause in Prolog is a unit of information i.e fact or rule
-	which ends with '.'
-
-	A Predicate defines a relation between their arguments.
-	Predicate is defined by a set of clauses.
-
-*/
 
 flight(toronto, london, aircanada, 625, 500).
 flight(toronto, london, united, 775, 560).
@@ -55,9 +45,6 @@ preferred_cheap_or_aircanada(A, B, C):-
 
 if_united_then_aircanada(A, B) :-
     is_flight_new(A, B, united)  ->  is_flight_new(A, B, aircanada).
-    
-    
-    
-    
+        
 
-/* '->' is 'Implies' */
+

